@@ -19,24 +19,24 @@
             padding: 0;
             background-color: #f5f7fa;
             color: #333;
-            font-size: 10.5pt; /* 标准字号 */
-            line-height: 1.5; /* 舒适的行高 */
+            font-size: 10.5pt;
+            line-height: 1.3; /* 极限压缩行高 */
         }
 
         .page {
-            width: 216mm; /* US Letter / A4 稍宽一点 */
+            width: 216mm;
             min-height: 279mm;
-            padding: 18mm 20mm; /* 标准舒适边距，不再贴边 */
-            margin: 30px auto;
+            padding: 15mm 18mm; /* 稍微紧凑的边距 */
+            margin: 20px auto;
             background: white;
-            box-shadow: 0 0 15px rgba(0,0,0,0.05);
+            box-shadow: 0 0 10px rgba(0,0,0,0.05);
         }
 
-        /* --- 头部 --- */
+        /* --- 头部 (极简版) --- */
         header {
             border-bottom: 2px solid #0056b3;
-            padding-bottom: 15px;
-            margin-bottom: 20px;
+            padding-bottom: 8px; /* 减少留白 */
+            margin-bottom: 10px; /* 减少留白 */
             display: flex;
             justify-content: space-between;
             align-items: flex-end;
@@ -45,45 +45,45 @@
         .header-left h1 {
             margin: 0;
             color: #004085;
-            font-size: 34px; /* 更大气的名字 */
+            font-size: 30px; /* 稍微减小 */
             text-transform: uppercase;
-            letter-spacing: 1.5px;
+            letter-spacing: 1px;
             font-weight: 800;
+            line-height: 1;
         }
 
         .header-left .title {
-            font-size: 16px;
+            font-size: 14px;
             color: #2c7be5;
             font-weight: 600;
-            margin-top: 6px;
+            margin-top: 4px;
             letter-spacing: 0.5px;
         }
 
         .header-right {
             text-align: right;
-            font-size: 13px;
+            font-size: 12px;
             color: #555;
-            line-height: 1.6;
+            line-height: 1.4;
         }
         
-        .header-right i { color: #0056b3; width: 16px; text-align: center; margin-right: 6px; }
+        .header-right i { color: #0056b3; width: 14px; text-align: center; margin-right: 4px; }
 
-        /* --- 章节标题 --- */
-        section { margin-bottom: 22px; }
+        /* --- 章节标题 (无空行) --- */
+        section { margin-bottom: 12px; }
 
         h2 {
-            font-size: 15px;
+            font-size: 14px;
             color: #004085;
             border-bottom: 1px solid #cce5ff;
-            margin: 0 0 12px 0;
+            margin: 0 0 6px 0; /* 极小的下边距 */
             text-transform: uppercase;
-            padding-bottom: 5px;
+            padding-bottom: 2px;
             font-weight: 800;
-            letter-spacing: 1px;
+            letter-spacing: 0.5px;
             position: relative;
         }
         
-        /* 标题下的小装饰条，增加精致感 */
         h2::after {
             content: '';
             position: absolute;
@@ -98,114 +98,133 @@
         .summary-text {
             text-align: justify;
             color: #444;
-            margin-bottom: 10px;
+            margin-bottom: 0;
+            font-size: 13px;
         }
 
-        /* --- 教育背景 (列表式，清晰大气) --- */
+        /* --- 教育背景 (极度紧凑版) --- */
         .edu-item {
+            margin-bottom: 6px; /* 极小间距 */
+            padding-bottom: 4px;
+            border-bottom: 1px dashed #f0f0f0;
+        }
+        
+        .edu-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .edu-top {
             display: flex;
             justify-content: space-between;
-            margin-bottom: 6px;
-            align-items: baseline;
+            align-items: center;
+            margin-bottom: 0;
         }
 
-        .edu-school { font-weight: 700; font-size: 15px; color: #222; min-width: 280px; }
-        .edu-degree { font-style: italic; color: #555; flex-grow: 1; }
-        .edu-date { font-weight: 600; color: #0056b3; font-size: 13px; text-align: right; min-width: 120px; }
+        .edu-school { 
+            font-weight: 800; 
+            color: #004085; 
+            font-size: 14px;
+        }
 
-        /* 美国学历强调 */
-        .edu-item.highlight .edu-school { color: #004085; font-size: 16px; }
-        .edu-item.highlight .edu-degree { color: #333; font-weight: 500; }
+        .edu-date {
+            font-size: 12px;
+            color: #2c7be5; 
+            font-weight: 700;
+            white-space: nowrap;
+        }
 
-        /* --- 证书 --- */
+        .edu-degree { 
+            font-style: italic; 
+            color: #444; 
+            font-size: 13px;
+            font-weight: 500;
+            display: block;
+            margin-top: -2px; /* 向上拉一点 */
+        }
+
+        /* --- 证书 (紧凑) --- */
         .cert-section {
-            margin-top: 10px;
-            padding: 8px 12px;
+            margin-top: 8px;
+            padding: 4px 8px; /* 减小内边距 */
             background-color: #f8fbff;
             border-radius: 4px;
             border-left: 3px solid #0056b3;
             display: flex;
             align-items: center;
         }
-        .cert-label { font-weight: 700; color: #004085; margin-right: 15px; font-size: 13px; text-transform: uppercase; }
-        .cert-list { font-size: 13px; color: #333; }
-        .cert-list span { margin-right: 15px; display: inline-block; }
-        .cert-list i { color: #f59e0b; margin-right: 4px; }
+        .cert-label { font-weight: 700; color: #004085; margin-right: 10px; font-size: 12px; text-transform: uppercase; }
+        .cert-list { font-size: 12px; color: #333; line-height: 1.2; }
+        .cert-list span { margin-right: 12px; display: inline-block; }
+        .cert-list i { color: #f59e0b; margin-right: 3px; font-size: 11px; }
 
-        /* --- 技能表格 (舒展版) --- */
+        /* --- 技能表格 (无缝隙) --- */
         .skills-table {
             width: 100%;
             border-collapse: collapse;
-            font-size: 14px;
+            font-size: 13px;
         }
-        .skills-table td { padding: 5px 0; vertical-align: top; border-bottom: 1px dashed #eee; }
+        .skills-table td { padding: 2px 0; vertical-align: top; border-bottom: 1px dashed #eee; }
         .skills-table tr:last-child td { border-bottom: none; }
-        .skill-category { width: 150px; font-weight: 700; color: #004085; }
-        .skill-items { color: #444; line-height: 1.4; }
+        .skill-category { width: 140px; font-weight: 700; color: #004085; }
+        .skill-items { color: #444; line-height: 1.3; }
 
-        /* --- 工作经历 --- */
-        .job-item { margin-bottom: 20px; }
+        /* --- 工作经历 (紧凑) --- */
+        .job-item { margin-bottom: 12px; } /* 项目间距减小 */
         
         .job-header { 
             display: flex; 
             justify-content: space-between; 
-            margin-bottom: 2px; 
+            margin-bottom: 1px; /* 极小间距 */
             align-items: baseline; 
         }
-        .job-company { font-weight: 800; font-size: 16px; color: #222; }
-        .job-location { font-size: 13px; color: #666; }
+        .job-company { font-weight: 800; font-size: 15px; color: #222; }
+        .job-location { font-size: 12px; color: #666; }
         
         .job-role-row { 
             display: flex; 
             justify-content: space-between; 
-            margin-bottom: 6px; 
-            font-size: 14px;
+            margin-bottom: 3px; 
+            font-size: 13px;
         }
         .job-role { color: #0056b3; font-weight: 700; font-style: italic; }
-        .job-dates { color: #444; font-weight: 600; font-size: 13px; }
+        .job-dates { color: #444; font-weight: 600; font-size: 12px; }
         
         .project-title {
-            font-size: 14px;
+            font-size: 13px;
             font-weight: 700;
             color: #333;
-            margin-bottom: 6px;
-            padding-left: 10px;
-            border-left: 3px solid #b3d7ff; /* 蓝色竖线装饰 */
-            line-height: 1.3;
+            margin-bottom: 3px;
+            padding-left: 8px;
+            border-left: 3px solid #b3d7ff;
+            line-height: 1.2;
         }
 
-        ul { margin: 0; padding-left: 18px; margin-bottom: 6px; }
-        li { margin-bottom: 4px; text-align: justify; color: #333; }
+        ul { margin: 0; padding-left: 16px; margin-bottom: 2px; }
+        li { margin-bottom: 1px; text-align: justify; color: #333; font-size: 13px; } /* 列表项极紧凑 */
 
-        /* 技术栈标签 - 更现代 */
         .tech-stack {
             font-size: 12px;
             color: #666;
-            margin-top: 6px;
+            margin-top: 3px;
             background-color: #fff;
             display: inline-block;
-            padding: 2px 0;
+            padding: 1px 0;
+            border-top: 1px solid #eee;
+            width: 100%; /* 占满整行 */
         }
         .tech-stack strong { color: #d97706; font-weight: 700; margin-right: 5px; }
 
         @media print {
             body { background: none; }
-            .page { box-shadow: none; margin: 0; padding: 15mm 15mm; width: 100%; }
+            .page { box-shadow: none; margin: 0; padding: 10mm 15mm; width: 100%; }
             .no-print { display: none; }
-            /* 确保背景色打印出来 */
             .cert-section { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
         }
     </style>
 </head>
 <body>
-
-    <div style="text-align: center; padding: 20px;" class="no-print">
-        <button onclick="window.print()" style="padding: 10px 25px; font-size: 15px; background: #004085; color: white; border: none; border-radius: 4px; cursor: pointer; font-weight: bold; box-shadow: 0 2px 5px rgba(0,0,0,0.2);">
-            🖨️ 保存为 PDF (Save as PDF)
-        </button>
-    </div>
-
-    <div class="page">
         <!-- 头部 -->
         <header>
             <div class="header-left">
@@ -231,22 +250,28 @@
         <section>
             <h2>Education & Certifications</h2>
             
-            <div class="edu-item highlight">
-                <span class="edu-school">University of Pittsburgh</span>
+            <div class="edu-item">
+                <div class="edu-top">
+                    <span class="edu-school">University of Pittsburgh</span>
+                    <span class="edu-date">Expected Dec 2026</span>
+                </div>
                 <span class="edu-degree">Master of Science in Data Science</span>
-                <span class="edu-date">Expected Dec 2026</span>
             </div>
 
             <div class="edu-item">
-                <span class="edu-school">The State University of New York at Buffalo</span>
+                <div class="edu-top">
+                    <span class="edu-school">The State University of New York at Buffalo</span>
+                    <span class="edu-date"></span>
+                </div>
                 <span class="edu-degree">Master of Science in Financial Economics</span>
-                <span class="edu-date"></span>
             </div>
 
             <div class="edu-item">
-                <span class="edu-school">Xian International Studies University</span>
+                <div class="edu-top">
+                    <span class="edu-school">Xian International Studies University</span>
+                    <span class="edu-date"></span>
+                </div>
                 <span class="edu-degree">Bachelor of Science in International Economics</span>
-                <span class="edu-date"></span>
             </div>
 
             <div class="cert-section">
