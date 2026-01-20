@@ -1,0 +1,96 @@
+\documentclass[11pt,a4paper,sans]{moderncv}
+
+% Moderncv themes
+\moderncvstyle{banking} 
+\moderncvcolor{blue}                               
+
+% Character encoding
+\usepackage[utf8]{inputenc}
+
+% Adjust the page margins
+\usepackage[scale=0.8]{geometry}
+
+% Personal data
+\name{Xinli}{Zhang}
+\address{McLean, VA 22102}{}{}
+\phone[mobile]{(716)~239~8688}
+\email{xinlizhang25@gmail.com}
+\extrainfo{Work Authorization: U.S. Permanent Resident (No Sponsorship Required)}
+
+% Content
+\begin{document}
+\makecvtitle
+
+\section{Professional Summary}
+Highly analytical Machine Learning Engineer and PMP-certified professional with over 10 years of experience driving impactful technology transformations across commercial banking and healthcare. Currently pursuing an \textbf{M.S. in Data Science at the University of Pittsburgh}. Expert in deploying advanced ML systems on \textbf{GCP} and implementing \textbf{MLOps} best practices. Proven track record in developing robust \textbf{ETL solutions} and high-dimensional feature engineering to drive operational efficiency and regulatory compliance.
+
+\section{Education}
+\cventry{2024--Present}{Master of Science in Data Science}{University of Pittsburgh}{Pittsburgh, PA}{}{Focus: Applied Predictive Modeling, Data-Centric Computing, Responsible AI.}
+\cventry{2012--2013}{Master of Science in Financial Economics}{The State University of New York (SUNY)}{Buffalo, NY}{}{}
+\cventry{2005--2009}{Bachelor of Science in International Economics and Finance}{Xian International Studies University}{Xian, China}{}{}
+
+\section{Selected Projects}
+
+\cvitem{Financial Distress Prediction with Explainable AI (UPitt)}{
+    Developed a predictive model to identify corporate financial distress using a multi-year dataset. Implemented \textbf{XGBoost} and \textbf{Random Forest} with hyperparameter tuning via Optuna. Utilized \textbf{SHAP} and \textbf{LIME} to provide local and global model interpretability, ensuring features like leverage ratios and liquidity were actionable for risk managers.
+    \newline \textbf{Technologies:} Python, Scikit-learn, SHAP, Matplotlib, Pandas, Optuna.}
+
+\cvitem{Distributed ETL Pipeline for Large-scale Log Analysis}{
+    Designed and implemented a distributed data processing pipeline to analyze web server logs (over 10GB). Developed \textbf{PySpark} scripts to perform sessionization and user behavior analysis. Optimized join operations and data partitioning to reduce execution time by 35\% on a cluster environment.
+    \newline \textbf{Technologies:} PySpark, Hadoop HDFS, AWS S3, SQL, Spark SQL.}
+
+\cvitem{Fairness and Bias Audit in Credit Scoring Models}{
+    Evaluated existing credit scoring algorithms for demographic parity and equalized odds. Proposed a re-weighing preprocessing technique to mitigate disparate impact on protected groups, improving fairness metrics by 20\% without significant loss in AUC-ROC.
+    \newline \textbf{Technologies:} AIF360, Scikit-learn, Python, Statistical Modeling, Fairlearn.}
+
+\section{Professional Experience}
+
+\cventry{2021--2024}{Consultant Specialist (Machine Learning Engineer)}{HSBC}{Xian, China}{}{
+\begin{itemize}
+    \item \textbf{ML-Driven Anti-Money Laundering (AML) System Modernization}
+    \item Spearheaded \textbf{Predictive Model Development} and \textbf{ML Integration} by deploying a high-performance AML model on \textbf{GCP} that outperformed legacy rule-based systems.
+    \item Conducted \textbf{Statistical Data Interpretation} and \textbf{EDA} to uncover informative features from multi-billion record datasets using \textbf{BigQuery}.
+    \item Implemented \textbf{Data Quality Assurance} and \textbf{Feature Engineering} strategies leveraging \textbf{dbt} for complex data transformation workflows.
+    \item Applied \textbf{Unsupervised Clustering} and graph analytics to uncover hidden entity relationships using scikit-learn.
+    \item Drove \textbf{MLOps standardization} by developing modular \textbf{Kubeflow} components, automating model retraining and monitoring.
+    \item \textbf{Technologies:} GCP (BigQuery, Vertex AI), Kubeflow Pipelines, dbt, Python, MLOps, Docker, Kubernetes.
+\end{itemize}}
+
+\cventry{2018--2021}{Senior Software Developer}{HSBC}{Xian, China}{}{
+\begin{itemize}
+    \item \textbf{IFRS9 Model Redevelopment | ETL File Transfer | Reporting Automation}
+    \item Managed \textbf{Operational Risk Assessment} and supported the redevelopment of \textbf{IFRS9 SAS and Basel models} through rigorous data cleaning and secure database masking.
+    \item Optimized \textbf{Financial Data Analysis} by building a multi-server ETL file transfer solution that automated delivery to downstream teams.
+    \item Delivered scalable \textbf{ETL Pipeline Optimization} by building \textbf{IBM WebSphere DataStage} workflows.
+    \item Improved batch processing stability by scripting \textbf{UNIX shell} routines and orchestrating \textbf{Control-M} job flows.
+    \item \textbf{Technologies:} SAS, IBM DataStage, Oracle 11g, UNIX Shell, Control-M, QlikSense, PL/SQL.
+\end{itemize}}
+
+\newpage % Force second page
+
+\cventry{2015--2018}{Senior System Analyst (Contract)}{CareFirst Blue Cross Blue Shield}{Washington, DC}{}{
+\begin{itemize}
+    \item \textbf{Legacy System Modernization for Post-Adjudication and Remittance}
+    \item Led \textbf{Business Requirements Analysis} for a large-scale \textbf{Legacy System Migration} from mainframe platforms, focusing on EOB, remittance, and claims processing.
+    \item Collaborated with Project Managers to define evaluation criteria using \textbf{PMP methodologies}.
+    \item Enhanced system design clarity by creating \textbf{UML artifacts} (Use Cases, Sequence Diagrams) using \textbf{MS Visio}.
+    \item Conducted \textbf{Data Quality Assurance} by developing and executing comprehensive \textbf{UAT plans} and test scripts.
+    \item Maintained \textbf{Requirement Traceability Matrices (RTM)} to ensure 100\% requirement coverage.
+    \item \textbf{Technologies:} Mainframe, MS Visio (UML), MS SQL Server, SharePoint, HP QC, SOA, XML.
+\end{itemize}}
+
+\cventry{2013--2015}{Testing Engineer – ETL (Contract)}{Barclays}{Wilmington, DE}{}{
+\begin{itemize}
+    \item \textbf{Data-Driven Compliance and Customer Intelligence Initiatives}
+    \item Validated functionality of \textbf{SARS reporting systems} to ensure \textbf{Regulatory Compliance} with UK standards.
+    \item Executed \textbf{Data-Driven Reporting} by maintaining consistency between \textbf{MicroStrategy dashboards} and backend Oracle databases.
+    \item Validated upgraded contact delivery platforms and performed \textbf{Statistical Data Interpretation} on consumer survey feedback.
+    \item \textbf{Technologies:} MicroStrategy, Oracle, SQL, Informatica, HP Quality Center (QC), Agile, PACE.
+\end{itemize}}
+
+\section{Certifications}
+\cvitem{Management}{\textbf{PMP Certified} (Project Management Professional)}
+\cvitem{Technical}{\textbf{GCP Professional Data Engineer}, \textbf{Professional DevOps Engineer}}
+\cvitem{Finance}{\textbf{CFA Level 2 Candidate}}
+
+\end{document}
