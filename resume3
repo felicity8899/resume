@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Xinli Zhang - Resume</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        /* --- 全局重置 --- */
+        * {
+            box-sizing: border-box;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+        }
+
+        body {
+            font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f7fa;
+            color: #222; /* 字体颜色加深，对比度更高 */
+            font-size: 11pt; /* 字体加大 */
+            line-height: 1.3; /* 行距保持紧凑 */
+        }
+
+        .page {
+            width: 216mm;
+            min-height: 279mm;
+            padding: 12mm 15mm; /* 缩小页边距以容纳大字体 */
+            margin: 20px auto;
+            background: white;
+            box-shadow: 0 0 10px rgba(0,0,0,0.05);
+        }
+
+        /* --- 头部 --- */
+        header {
+            border-bottom: 2px solid #0056b3;
+            padding-bottom: 5px; /* 极小留白 */
+            margin-bottom: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+        }
+
+        .header-left h1 {
+            margin: 0;
+            color: #004085;
+            font-size: 32px; /* 名字够大 */
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 800;
+            line-height: 1;
+        }
+
+        .header-left .title {
+            font-size: 15px; /* 头衔加大 */
+            color: #2c7be5;
+            font-weight: 700;
+            margin-top: 3px;
+        }
+
+        .header-right {
+            text-align: right;
+            font-size: 12px;
+            color: #444;
+            line-height: 1.3;
+        }
+        
+        .header-right i { color: #0056b3; width: 14px; text-align: center; margin-right: 3px; }
+
+        /* --- 章节标题 (紧凑) --- */
+        section { margin-bottom: 10px; }
+
+        h2 {
+            font-size: 15px; /* 标题加大 */
+            color: #004085;
+            border-bottom: 1px solid #cce5ff;
+            margin: 0 0 5px 0;
+            text-transform: uppercase;
+            padding-bottom: 2px;
+            font-weight: 800;
+            letter-spacing: 0.5px;
+            position: relative;
+        }
+        
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background-color: #0056b3;
+        }
+
+        /* --- 摘要 --- */
+        .summary-text {
+            text-align: justify;
+            color: #333;
+            margin-bottom: 0;
+            font-size: 11pt; /* 正文大小 */
+        }
+
+        /* --- 教育背景 (单行紧凑版) --- */
+        .edu-item {
+            margin-bottom: 4px;
+            padding-bottom: 2px;
+            border-bottom: 1px dashed #eee;
+            display: flex;
+            justify-content: space-between;
+            align-items: center; /* 垂直居中 */
+        }
+        
+        .edu-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+        }
+
+        .edu-info {
+            flex: 1;
+            font-size: 11pt;
+        }
+
+        .edu-school { 
+            font-weight: 800; 
+            color: #004085; 
+        }
+
+        .edu-divider {
+            margin: 0 5px;
+            color: #bbb;
+        }
+
+        .edu-degree { 
+            font-style: italic; 
+            color: #444; 
+            font-weight: 500;
+        }
+
+        .edu-date {
+            text-align: right;
+            font-size: 11pt;
+            color: #2c7be5; 
+            font-weight: 700;
+            white-space: nowrap;
+            margin-left: 10px;
+        }
+
+        /* --- 证书 (紧凑) --- */
+        .cert-section {
+            margin-top: 6px;
+            padding: 3px 8px;
+            background-color: #f0f7ff;
+            border-radius: 4px;
+            border-left: 3px solid #0056b3;
+            display: flex;
+            align-items: center;
+            font-size: 10.5pt;
+        }
+        .cert-label { font-weight: 700; color: #004085; margin-right: 10px; text-transform: uppercase; font-size: 10.5pt; }
+        .cert-list span { margin-right: 12px; display: inline-block; color: #333; }
+        .cert-list i { color: #f59e0b; margin-right: 3px; font-size: 10pt; }
+
+        /* --- 技能表格 (紧凑) --- */
+        .skills-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 11pt;
+        }
+        .skills-table td { padding: 2px 0; vertical-align: top; border-bottom: 1px dashed #eee; }
+        .skills-table tr:last-child td { border-bottom: none; }
+        .skill-category { width: 145px; font-weight: 700; color: #004085; }
+        .skill-items { color: #333; line-height: 1.3; }
+
+        /* --- 工作经历 (紧凑) --- */
+        .job-item { margin-bottom: 10px; }
+        
+        .job-header { 
+            display: flex; 
+            justify-content: space-between; 
+            margin-bottom: 1px;
+            align-items: baseline; 
+        }
+        .job-company { font-weight: 800; font-size: 12pt; color: #000; }
+        .job-location { font-size: 10.5pt; color: #666; }
+        
+        .job-role-row { 
+            display: flex; 
+            justify-content: space-between; 
+            margin-bottom: 3px; 
+            font-size: 11pt;
+        }
+        .job-role { color: #0056b3; font-weight: 700; font-style: italic; }
+        .job-dates { color: #333; font-weight: 600; font-size: 11pt; }
+        
+        .project-title {
+            font-size: 11pt;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 2px;
+            padding-left: 8px;
+            border-left: 3px solid #b3d7ff;
+            line-height: 1.2;
+        }
+
+        ul { margin: 0; padding-left: 16px; margin-bottom: 2px; }
+        li { margin-bottom: 1px; text-align: justify; color: #333; font-size: 11pt; }
+
+        .tech-stack {
+            font-size: 10.5pt;
+            color: #555;
+            margin-top: 2px;
+            background-color: #fff;
+            display: inline-block;
+            padding: 1px 0;
+            border-top: 1px dotted #ccc;
+            width: 100%;
+        }
+        .tech-stack strong { color: #d97706; font-weight: 700; margin-right: 5px; }
+
+        @media print {
+            body { background: none; }
+            .page { box-shadow: none; margin: 0; padding: 10mm 15mm; width: 100%; }
+            .no-print { display: none; }
+            .cert-section { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+        }
+    </style>
+</head>
+<body>
+
+    <div style="text-align: center; padding: 15px;" class="no-print">
+        <button onclick="window.print()" style="padding: 8px 20px; font-size: 14px; background: #004085; color: white; border: none; border-radius: 4px; cursor: pointer; font-weight: bold;">
+            🖨️ 保存为 PDF (Save as PDF)
+        </button>
+    </div>
+
+    <div class="page">
+        <!-- 头部 -->
+        <header>
+            <div class="header-left">
+                <h1>Xinli Zhang</h1>
+                <div class="title">Data & ML Practitioner</div>
+            </div>
+            <div class="header-right">
+                <div><i class="fas fa-map-marker-alt"></i> Mclean, VA</div>
+                <div><i class="fas fa-phone"></i> (716) 239-8688</div>
+                <div><i class="fas fa-envelope"></i> xinlizhang25@gmail.com</div>
+            </div>
+        </header>
+
+        <!-- 摘要 -->
+        <section>
+            <h2>Professional Summary</h2>
+            <div class="summary-text">
+               <strong>PMP Certified professional</strong> with dual Master’s degrees in <strong>Data Science</strong> and <strong>Financial Economics</strong> and <strong>10+ years</strong> of experience. Expert in deploying advanced <strong>Machine Learning (ML)</strong> systems on <strong>GCP</strong> and architecting robust <strong>ETL</strong> pipelines. Proven track record of leading large-scale system modernization projects, replacing legacy rule-based frameworks with <strong>predictive models</strong> to enhance operational efficiency and regulatory compliance.
+            </div>
+        </section>
+
+        <!-- 教育背景 -->
+        <section>
+            <h2>Education & Certifications</h2>
+            
+            <div class="edu-item">
+                <div class="edu-info">
+                    <span class="edu-school">University of Pittsburgh</span>
+                    <span class="edu-divider">|</span>
+                    <span class="edu-degree">Master of Science in Data Science</span>
+                </div>
+                <div class="edu-date">Expected Dec 2026</div>
+            </div>
+
+            <div class="edu-item">
+                <div class="edu-info">
+                    <span class="edu-school">The State University of New York at Buffalo</span>
+                    <span class="edu-divider">|</span>
+                    <span class="edu-degree">Master of Science in Financial Economics</span>
+                </div>
+                <div class="edu-date"></div>
+            </div>
+
+            <div class="edu-item">
+                <div class="edu-info">
+                    <span class="edu-school">Xian International Studies University</span>
+                    <span class="edu-divider">|</span>
+                    <span class="edu-degree">Bachelor of Science in International Economics</span>
+                </div>
+                <div class="edu-date"></div>
+            </div>
+
+            <div class="cert-section">
+                <span class="cert-label">Certifications</span>
+                <div class="cert-list">
+                    <span><i class="fas fa-check"></i> Google Professional Data Engineer</span>
+                    <span><i class="fas fa-check"></i> PMP</span>
+                    <span><i class="fas fa-check"></i> Google DevOps Engineer Certified</span>
+                    <span><i class="fas fa-check"></i> CFA Level 3 Candidate</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- 技能 -->
+        <section>
+            <h2>Technical Skills</h2>
+            <table class="skills-table">
+                 <tr>
+                    <td class="skill-category">Machine Learning</td>
+                    <td class="skill-items">Scikit-learn, TensorFlow, Feature Engineering, Unsupervised Clustering, Graph Analytics</td>
+                </tr>
+                <tr>
+                    <td class="skill-category">Data Engineering</td>
+                    <td class="skill-items">Python (Pandas, NumPy), SQL (T-SQL, BigQuery Standard), dbt, ETL/ELT, Shell Scripting, Airflow</td>
+                </tr>
+                <tr>
+                    <td class="skill-category">Cloud & DevOps</td>
+                    <td class="skill-items">GCP (BigQuery, Dataflow, Pub/Sub), Kubernetes (GKE), Kubeflow, Docker, Jenkins (CI/CD), GitOps</td>
+                </tr>
+                <tr>
+                    <td class="skill-category">Tools & BI</td>
+                    <td class="skill-items">IBM DataStage, Control-M, Power BI, QlikSense, Tableau, Jira, Linux/Unix</td>
+                </tr>
+            </table>
+        </section>
+
+        <!-- 工作经历 -->
+        <section>
+            <h2>Professional Experience</h2>
+
+            <!-- PMI Washington DC Chapter -->
+            <div class="job-item">
+                <div class="job-header">
+                    <span class="job-company">PMI Washington DC Chapter</span>
+                    <span class="job-location">Washington DC</span>
+                </div>
+                <div class="job-role-row">
+                    <span class="job-role">Pro Bono Business Data Analyst</span>
+                    <span class="job-dates">Jan 2026 – Present</span>
+                </div>
+                <div class="project-title">Project: Membership Analytics & Strategic Planning</div>
+                <ul>
+                    <li><strong>Spatial Analysis & Strategy:</strong> Analyzed membership geographic data using <strong>Python</strong> and <strong>SQL</strong> to assist leadership with strategic office relocation decisions.</li>
+                    <li><strong>Survey Analytics & Member Insights:</strong> Processed and evaluated survey data to extract deep customer needs, supporting the planning of targeted future events and services.</li>
+                    <li><strong>Financial Forecasting:</strong> Conducted financial data analysis and modeling to provide revenue forecasts and support budget optimization for chapter operations.</li>
+                    <li><strong>Executive Presentation & Collaboration:</strong> Translated complex analytical findings into clear, actionable business strategies, regularly presenting recommendations to the Leadership Board and cross-functional teams to drive organizational alignment.</li>
+                </ul>
+                <div class="tech-stack"><strong>Stack:</strong> Python, SQL, Tableau</div>
+            </div>
+
+            <!-- HSBC 1 -->
+            <div class="job-item">
+                <div class="job-header">
+                    <span class="job-company">HSBC</span>
+                    <span class="job-location">Xian, China</span>
+                </div>
+                <div class="job-role-row">
+                    <span class="job-role">Consultant Specialist (Machine Learning Engineer)</span>
+                    <span class="job-dates">2021 – 2024</span>
+                </div>
+                <div class="project-title">Project: Next-Gen Anti-Money Laundering (AML) System Modernization on GCP</div>
+                <ul>
+                    <li><strong>EDA & Feature Engineering:</strong> Conducted in-depth <strong>EDA</strong> using <strong>Python</strong> (Pandas) to uncover patterns. <strong>Developed</strong> complex <strong>Feature Engineering</strong> logic using <strong>dbt</strong>, transforming raw transaction data into high-value features for model consumption.</li>
+                    <li><strong>Production Support:</strong> Provided critical operational support for <strong>monthly batch processing</strong> cycles. Monitored pipeline execution, triaged failures, and resolved data quality issues for timely AML reporting.</li>
+                    <li><strong>ELT Pipeline Development:</strong> Built and maintained cloud-native ELT pipelines on <strong>GCP</strong> using <strong>BigQuery</strong> and <strong>dbt</strong>. Developed complex SQL transformations to process 10+ TB of monthly transaction data, optimizing query performance.</li>
+                    <li><strong>MLOps Implementation:</strong> Developed modular <strong>MLOps components</strong> using <strong>Kubeflow</strong> on GKE. Automating specific stages including data ingestion, feature engineering, and model training to ensure pipeline reproducibility.</li>
+                </ul>
+                <div class="tech-stack"><strong>Stack:</strong> GCP, BigQuery, dbt, Kubeflow, Kubernetes, Python, Docker, Jenkins, Git, Linux.</div>
+            </div>
+
+            <!-- HSBC 2 -->
+            <div class="job-item">
+                <div class="job-header">
+                    <span class="job-company">HSBC</span>
+                    <span class="job-location">Xian, China</span>
+                </div>
+                <div class="job-role-row">
+                    <span class="job-role">Senior Software Developer</span>
+                    <span class="job-dates">2018 – 2021</span>
+                </div>
+                <div class="project-title">Projects: IFRS9 Regulatory Reporting & Enterprise ETL Framework</div>
+                <ul>
+                    <li><strong>ETL Job Development:</strong> Developed <strong>IBM DataStage</strong> parallel jobs to ingest data from heterogeneous sources (DB2, Oracle, Mainframe), execute complex data transformations, and generate standardized <strong>interface files</strong> for downstream systems.</li>
+                    <li><strong>Integration & Validation:</strong> Implemented automated validation scripts based on <strong>ICDs</strong> to verify data accuracy during cross-system file transfers.</li>
+                    <li><strong>Incident Resolution:</strong> Provided Level 3 support for batch failures. Utilized Unix tools (sed, awk, grep) to analyze logs and apply rapid fixes to restore service.</li>
+                     <li><strong>Batch Automation:</strong> Wrote robust <strong>UNIX Shell scripts</strong> to wrap ETL jobs with error handling. Configured <strong>Control-M</strong> job chains to orchestrate daily execution of 500+ tasks.</li>
+                </ul>
+                <div class="tech-stack"><strong>Stack:</strong> IBM DataStage, Oracle, SQL, Unix Shell (Bash), Control-M, QlikSense, Jira.</div>
+            </div>
+
+            <!-- CareFirst -->
+            <div class="job-item">
+                <div class="job-header">
+                    <span class="job-company">CareFirst BlueCross BlueShield</span>
+                    <span class="job-location">Washington DC</span>
+                </div>
+                <div class="job-role-row">
+                    <span class="job-role">Senior System Analyst</span>
+                    <span class="job-dates">2015 – 2018</span>
+                </div>
+                <div class="project-title">Project: Post-Adjudication System Modernization</div>
+                <ul>
+                    <li><strong>Legacy System Migration:</strong> Facilitated the migration of critical post-adjudication systems (EOB, Claims) from legacy platforms. Defined <strong>XML</strong> schemas and API specifications.</li>
+                    <li><strong>Data Integrity:</strong> Engineered complex <strong>SQL</strong> validation scripts to verify data consistency across legacy and new platforms, ensuring zero data loss for millions of records.</li>
+                    <li><strong>UAT Support:</strong> Managed User Acceptance Testing (UAT) by tracking defects in <strong>SharePoint</strong> and coordinating with developers to resolve remittance processing blockers.</li>
+                    <li><strong>Test Documentation:</strong> Developed comprehensive <strong>Test Cases</strong> and maintained <strong>RTMs</strong> to ensure alignment with healthcare business rules.</li>
+                </ul>
+                <div class="tech-stack"><strong>Stack:</strong> SQL Server, DB2, XML, SQL, SharePoint, Claims Data.</div>
+            </div>
+
+            <!-- Barclays -->
+            <div class="job-item">
+                <div class="job-header">
+                    <span class="job-company">Barclays</span>
+                    <span class="job-location">Wilmington, DE</span>
+                </div>
+                <div class="job-role-row">
+                    <span class="job-role">Testing Engineer – ETL</span>
+                    <span class="job-dates">2013 – 2015</span>
+                </div>
+                <div class="project-title">Project: Data-Driven Compliance (SARS)</div>
+                <ul>
+                    <li><strong>ETL Validation:</strong> Validated complex ETL workflows for the <strong>Eligibility Filtering</strong> application, ensuring rigorous logic for rate re-evaluation offers.</li>
+                    <li><strong>Compliance Testing:</strong> Executed backend testing for <strong>SARS</strong> systems. Wrote advanced <strong>SQL</strong> queries on Oracle databases to verify regulatory compliance.</li>
+                </ul>
+                <div class="tech-stack"><strong>Stack:</strong> Oracle, SQL, MicroStrategy, HP Quality Center, Unix.</div>
+            </div>
+
+        </section>
+    </div>
+
+</body>
+</html>
